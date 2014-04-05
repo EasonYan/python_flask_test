@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>深圳大学 党委组织部统战部</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/reset.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/the_main.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/index_css.css') }}" type="text/css" />
+<script src="{{ url_for('static', filename='public_index/js/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='public_index/js/menu_js.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='public_index/js/pic_move.js') }}">                  
+</script>
+</head>
+
+    <body>
+		<div id="container">
+			<div id="header">
+
+			</div>
+			<div id="menu">
+			    <ul id="nav">
+				  <li id="nav_item_01" class="nav_item">
+					  <a href="/app/Index/index">
+					  <img src="{{ url_for('static', filename='public_index/images/item_shouye.png') }}" ></a>                    
+				  </li>
+				  <li id="nav_item_02" class="nav_item">
+					  <a href="/app/Index/content/id/12/status/-1" >
+					  <img src="{{ url_for('static', filename='public_index/images/item_dongtai.png') }}" ></a>
+                           <ul class="nav_menu">
+                           <foreach name="dongtai" item="vo">
+                                <li><a href="/app/Index/content/id/12/status/{$vo.id}" >{$vo.names}</a></li>
+                            </foreach>                  
+                           </ul>
+				  </li>
+				  <li id="nav_item_03" class="nav_item">
+					  <a href="/app/Index/content/id/21/status/-1" >
+					  <img src="{{ url_for('static', filename='public_index/images/item_lilun.png') }}" ></a>
+                           <ul class="nav_menu">
+                               <foreach name="lilun" item="vo">
+                                <li><a href="/app/Index/content/id/21/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>    
+                           </ul>
+				  </li>
+				  <li id="nav_item_04" class="nav_item">
+					  <a href="/app/Index/content/id/13/status/-1" >
+					  <img src="{{ url_for('static', filename='public_index/images/item_zuzhi.png') }}" ></a>
+                           <ul class="nav_menu">
+                                 <foreach name="zuzhijigou" item="vo">
+                                <li><a href="/app/Index/content/id/13/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                
+                           </ul>
+				  </li>
+				  <li id="nav_item_05" class="nav_item">
+					  <a href="/app/Index/content/id/14/status/-1" >
+					  <img src="{{ url_for('static', filename='public_index/images/item_dangjian.png') }}" ></a>
+                           <ul class="nav_menu">
+                                <foreach name="dangjian" item="vo">
+                                <li><a href="/app/Index/content/id/14/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                               
+                           </ul>
+				  </li>
+				  <li id="nav_item_06" class="nav_item">
+					  <a href="/app/Index/content/id/15/status/-1"  >
+					  <img src="{{ url_for('static', filename='public_index/images/item_ganbu.png') }}" ></a>
+                            <ul class="nav_menu">
+                                 <foreach name="ganbu" item="vo">
+                                <li><a href="/app/Index/content/id/15/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                           
+                           </ul>
+				  </li>
+				  <li id="nav_item_07" class="nav_item">
+					  <a href="/app/Index/content/id/12/status/{$vo.id}" >
+					  <img src="{{ url_for('static', filename='public_index/images/item_dangxiao.png') }}" ></a>
+				  </li>
+				  <li id="nav_item_08" class="nav_item">
+					  <a href="/app/Index/content/id/17/status/-1" >
+					  <img src="{{ url_for('static', filename='public_index/images/item_tongzhan.png') }}" ></a>
+                            <ul class="nav_menu">
+                                 <foreach name="tongzhan" item="vo">
+                                <li><a href="/app/Index/content/id/17/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                             
+                           </ul>
+				  </li>
+				  <li id="nav_item_09" class="nav_item">
+					  <a href="/app/Index/content/id/18/status/-1">
+					  <img src="{{ url_for('static', filename='public_index/images/item_rencai.png') }}" ></a>
+                            <ul class="nav_menu">
+                               <foreach name="rencai" item="vo">
+                                <li><a href="/app/Index/content/id/18/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                         
+                           </ul>
+				  </li>
+				  <li id="nav_item_10" class="nav_item">
+					  <a href="/app/Index/content/id/53/status/-1">
+					  <img src="{{ url_for('static', filename='public_index/images/item_banshi.png') }}" ></a>
+                            <ul class="nav_menu">
+                                 <foreach name="banshi" item="vo">
+                                <li><a href="/app/Index/content/id/53/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                                                  
+                           </ul>
+				  </li>
+				  <li id="nav_item_11" class="nav_item noline">
+					  <a href="/app/Index/content/id/54/status/-1" >
+					  <img src="{{ url_for('static', filename='public_index/images/item_xiazai.png') }}" ></a>
+                            <ul class="nav_menu menu_noline">
+                                 <foreach name="xiazai" item="vo">
+                                <li><a href="/app/Index/content/id/54/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                                                   
+                           </ul>
+				  </li>
+			</div>
+
+
+
+			<div id="main">			  
+					<div id="zone_one" class="zone">
+						<div id="tittle_one" class="the_tittle">
+                            <p>动态通知</p><a href="/app/Index/content/id/12/status/-1">更多&gt&gt</a>
+						</div>
+						<div id="things_one" class="the_things">
+                            <ul class="content_font">
+                            {% for article in dongtaitongzhi %}
+                                <a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank" ><li id="pic_one"><div class="pic_tittle">{{ article.title}}</div>
+                                   <img  style="width:460px; height:270px" src="{$vo.imgurl}" alt="" /></li></a>
+                            {% endfor %}
+                              </ul>
+                            }
+                            }
+						</div>
+					</div>
+					<div id="zone_two" class="zone">				
+						<div id="things_two" class="the_things">
+                           <div id="ibanner">
+                                <ul id="ibanner_pic">
+                                <foreach name="img" item="vo">
+                                   <a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank" ><li id="pic_one"><div class="pic_tittle">{$vo.title}</div>
+                                   <img  style="width:460px; height:270px" src="{$vo.imgurl}" alt="" /></li></a>
+                                   </foreach>
+                                </ul>
+                          </div><!--ibanner end-->  
+						</div>
+					</div>
+					<div id="zone_three" class="zone">
+						<div id="tittle_three" class="the_tittle">
+                              <p>党建工作</p><a class="more" href="/app/Index/content/id/14/status/-1">更多&gt&gt</a>
+						</div>
+						<div id="things_three" class="the_things">
+                                <ul class="content_font">
+                                   <foreach name="dangjiancon" item="vo">
+                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{$vo.title|subtext=21}</a><span>{$vo.edit_time|subtext=10}</span></li>
+                               </foreach>
+                              </ul>
+						</div>
+					</div>
+					<div id="zone_four" class="zone">
+						<div id="tittle_four" class="the_tittle">
+                              <p>干部工作</p><a class="more" href="/app/Index/content/id/15/status/-1">更多&gt&gt</a>
+						</div>
+						<div id="things_four" class="the_things">
+                                <ul class="content_font">
+                                    <foreach name="ganbucon" item="vo">
+                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{$vo.title|subtext=21}</a><span>{$vo.edit_time|subtext=10}</span></li>
+                               </foreach>
+                       
+                              </ul>
+						</div>
+					</div>
+                    <div id="zone_five" class="zone">
+						<div id="tittle_five" class="the_tittle">
+                              <p>统战之窗</p><a class="more" href="/app/Index/content/id/17/status/-1">更多&gt&gt</a>
+						</div>
+						<div id="things_five" class="the_things">
+                                <ul class="content_font">
+                                  <foreach name="tongzhancon" item="vo">
+                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank" >{$vo.title|subtext=21}</a><span>{$vo.edit_time|subtext=10}</span></li>
+                               </foreach>
+                              </ul>
+						</div>
+					</div>
+					<div id="zone_six" class="zone">
+						<div id="tittle_six" class="the_tittle">
+                              <p>下载专区</p><a class="more" href="/app/Index/content/id/54/status/-1">更多&gt&gt</a>
+						</div>
+						<div id="things_six" class="the_things">
+                                <ul class="content_font">
+                                 <foreach name="xiazaicon" item="vo">
+                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{$vo.title|subtext=21}</a><span>{$vo.edit_time|subtext=10}</span></li>
+                               </foreach>          
+                              </ul>
+						</div>
+					</div>
+                    <div id="zone_seven">
+                        <ul>
+                           <li>	
+                                <a href="http://www.szu.edu.cn" target="_blank" title="深圳大学"><img src="/app/public_index/images/SZU_link.gif"></a>
+                                </li>
+                           <li>	
+                                <a href="http://www.tzb.sz.gov.cn/" target="_blank" title="深圳市委统战部"><img src="/app/public_index/images/SZTZB_link.gif" ></a>
+                           </li>
+                           <li>	
+                                <a href="http://www.zzb.sz.gov.cn/" target="_blank" title="深圳组工在线"><img src="/app/public_index/images/SZZG_link.gif"  ></a>
+                           </li>
+                           
+                           <li>	
+                               <a href="http://www.gdzz.cn/javaoa/home/" target="_blank" title="广东组织工作"><img src="/app/public_index/images/GDGZ_link.gif"  ></a> </li>
+                           <li>	
+                               <a href="http://www.tongxin.org/" target="_blank" title="同心网"><img src="/app/public_index/images/TXW_link.gif" ></a>
+                           </li>
+                        </ul>
+                       <p> <a href="/app/Login/login" style="font-size:16px; color:#0000FF;">登陆</a></p>
+                        <p>深圳大学党委组织部统战部 办公楼512   <br /> 电话：26536609   电子邮箱：zzb@szu.edu.cn </p>
+                    </div>
+			   </div>
+			</div>
+		</div>
+	</body>
+</html>

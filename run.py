@@ -22,29 +22,39 @@ class Page(db.Model):
     ding=db.Column(db.Integer)
     imgurl=db.Column(db.Text)
     trees=db.Column(db.String(100))
-    cid=db.Column(db.Integer)
+    cid = db.Column(db.Integer, db.ForeignKey('think_class.id'))
 
-    def __repr__(self):
-        return str(self.title)
 
-class Clss(db.Model):
+class think_class(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     names=db.Column(db.String(50))
-    cid=db.Column(db.Integer)
     xu=db.Column(db.Integer)
     dis=db.Column(db.String(20))
     trees=db.Column(db.String(60))
     url=db.Column(db.String(255))
-    IDtime=db.Column(db.DateTime)
+   # IDtime=db.Column(db.DateTime)
+    articles = db.relationship('Page', backref='clss',lazy='dynamic')
+    
+
+
+
+
+
 #db.create_all()
  
 
 @app.route('/')
 def people():
-    query_user = Page.query.filter(Page.cid==79).all()
-    return query_user
-    #return render_template('index.html')
+    #dongcid=Clss.query.filter(Clss.cid==12).all()
+    dongtai = think_class.query.filter(think_class.id==79).first()
+    dongtaitongzhi=dongtai.articles.limit(8)
+    #print dongtaitongzhi.names
+    #page = Page.query.filter_by(id=122).first()
+    #return 'sss'
+    return render_template(
+        'index.html',dongtaitongzhi=dongtaitongzhi
+    )
 
  
 if __name__ == '__main__':
