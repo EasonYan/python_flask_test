@@ -29,9 +29,9 @@
 					  <a href="/app/Index/content/id/12/status/-1" >
 					  <img src="{{ url_for('static', filename='public_index/images/item_dongtai.png') }}" ></a>
                            <ul class="nav_menu">
-                           <foreach name="dongtai" item="vo">
-                                <li><a href="/app/Index/content/id/12/status/{$vo.id}" >{$vo.names}</a></li>
-                            </foreach>                  
+                           {% for u in dongtai %}
+                                <li><a href="/app/Index/content/id/12/status/{$vo.id}" >{{u.names}}</a></li>
+                            {% endfor %}                  
                            </ul>
 				  </li>
 				  <li id="nav_item_03" class="nav_item">
@@ -121,13 +121,11 @@
 						</div>
 						<div id="things_one" class="the_things">
                             <ul class="content_font">
-                            {% for article in dongtaitongzhi %}
-                                <a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank" ><li id="pic_one"><div class="pic_tittle">{{ article.title}}</div>
+                            {% for u in dongtaitongzhi %}
+                                <a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank" ><li id="pic_one"><div class="pic_tittle"></div>{{ u.title }}
                                    <img  style="width:460px; height:270px" src="{$vo.imgurl}" alt="" /></li></a>
                             {% endfor %}
                               </ul>
-                            }
-                            }
 						</div>
 					</div>
 					<div id="zone_two" class="zone">				
@@ -148,9 +146,9 @@
 						</div>
 						<div id="things_three" class="the_things">
                                 <ul class="content_font">
-                                   <foreach name="dangjiancon" item="vo">
-                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{$vo.title|subtext=21}</a><span>{$vo.edit_time|subtext=10}</span></li>
-                               </foreach>
+                               {% for u in dangjiangongzuo %}
+                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{{ u.title }}</a><span>{{u.id}}</span></li>
+                               {% endfor %}
                               </ul>
 						</div>
 					</div>
@@ -160,9 +158,9 @@
 						</div>
 						<div id="things_four" class="the_things">
                                 <ul class="content_font">
-                                    <foreach name="ganbucon" item="vo">
-                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{$vo.title|subtext=21}</a><span>{$vo.edit_time|subtext=10}</span></li>
-                               </foreach>
+                                {% for u in dangjiangongzuo %}
+                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{{ u.title}}</a><span></span></li>
+                               {% endfor %}
                        
                               </ul>
 						</div>
