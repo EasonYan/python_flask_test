@@ -26,11 +26,11 @@
 					  <img src="{{ url_for('static', filename='public_index/images/item_shouye.png') }}" ></a>                    
 				  </li>
 				  <li id="nav_item_02" class="nav_item">
-					  <a href="/app/Index/content/id/12/status/-1" >
+					  <a href="#" >
 					  <img src="{{ url_for('static', filename='public_index/images/item_dongtai.png') }}" ></a>
                            <ul class="nav_menu">
                            {% for u in dongtai %}
-                                <li><a href="/app/Index/content/id/12/status/{$vo.id}" >{{u.names}}</a></li>
+                                <li><a href="{{ url_for('lu', id=12,status=u.id) }}" >{{u.names}}</a></li>
                             {% endfor %}                  
                            </ul>
 				  </li>
@@ -122,7 +122,7 @@
 						<div id="things_one" class="the_things">
                             <ul class="content_font">
                             {% for u in dongtaitongzhi %}
-                                <a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank" ><li id="pic_one"><div class="pic_tittle"></div>{{ u.title }}
+                                <a href="{{url_for('content',id=u.id)}}" target="_blank" ><li id="pic_one"><div class="pic_tittle"></div>{{ u.title }}
                                    <img  style="width:460px; height:270px" src="{$vo.imgurl}" alt="" /></li></a>
                             {% endfor %}
                               </ul>

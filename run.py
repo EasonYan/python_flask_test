@@ -26,7 +26,6 @@ class Page(db.Model):
 
 
 class think_class(db.Model):
-
     id = db.Column(db.Integer, primary_key=True)
     names=db.Column(db.String(50))
     xu=db.Column(db.Integer)
@@ -46,33 +45,14 @@ class think_class(db.Model):
  
 
 @app.route('/')
-def people():
+def index():
     dongtai=think_class.query.filter(think_class.cid==12).all()
     dongtaitongzhi=dongtai[0].articles.limit(8)
     dangjian=think_class.query.filter(think_class.cid==14).all()
     dangjiangongzuo=dangjian[0].articles.limit(8)
     ganbu=think_class.query.filter(think_class.cid==15).all()
     ganbugongzuo=ganbu[0].articles.limit(8)
-    #dongtai = think_class.query.filter(think_class.cid==12).first()
-    #for u in dongtai.articles:
-    #    print u.clss.id
-    #print dongtai.articles.
-    #dongtaitongzhi=dongtai.articles.limit(8)
-    #print str(dir(dongtai))
-    #for u in dongtai:
-     #   print u.articles.all()
-    #page=Page.query.filter(Page.cid==37).first()
-    
-    #return str(dir(dongtai))
-    #for u in dongtai:
-    #   print u.names
-    #return dongtai.names
-    #print str(dongtai)
-    #print think_class.query.filter(think_class.cid==12)
-    #print dongtai.articles.order_by(Page.id)
-    #print dongtaitongzhi.names
-    #page = Page.query.filter_by(id=122).first()
-    #return 'sss'
+    #flash('Document <strong>%s</strong> is missing.', 'error')
     return render_template(
         'index.html',
         dongtai=dongtai,
@@ -81,6 +61,25 @@ def people():
         ganbugongzuo=ganbugongzuo
     )
 
- 
+
+@app.route('/content/<int:id>')
+def content(id):
+    content=Page.query.filter(Page.id==id).first()
+    return render_template(
+        'wenzhang.html',content=content
+    )
+
+@app.route('/lu/<int:id>/<int:status>')
+def lu(id,status):
+    left_nav=think_class.query.filter(think_class.cid==id).all()
+    #print status
+    position_two=think_class.query.filter(think_class.id==status).first()
+    return render_template(
+        'content.html',
+        left_nav=left_nav,
+        position_two=position_two
+    )
+
+
 if __name__ == '__main__':
     app.run(debug=True) 

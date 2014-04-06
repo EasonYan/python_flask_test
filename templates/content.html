@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>深圳大学 党委组织部统战部</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/reset.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/the_main.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/lilunshiye_css.css') }}" type="text/css" />
+<script src="{{ url_for('static', filename='public_index/js/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='public_index/js/menu_js.js') }}"></script>
+
+</head>
+<body>
+<div id="container">
+            <div id="header">
+            </div>
+            <div id="menu">
+                <ul id="nav">
+                  <li id="nav_item_01" class="nav_item">
+                      <a href="/app/Index/index">
+                      <img src="{{ url_for('static', filename='public_index/images/item_shouye.png') }}" ></a>                    
+                  </li>
+                  <li id="nav_item_02" class="nav_item">
+                      <a href="/app/Index/content/id/12/status/-1" >
+                      <img src="{{ url_for('static', filename='public_index/images/item_dongtai.png') }}" ></a>
+                           <ul class="nav_menu">
+                           {% for u in dongtai %}
+                                <li><a href="/app/Index/content/id/12/status/{$vo.id}" >{{u.names}}</a></li>
+                            {% endfor %}                  
+                           </ul>
+                  </li>
+                  <li id="nav_item_03" class="nav_item">
+                      <a href="/app/Index/content/id/21/status/-1" >
+                      <img src="{{ url_for('static', filename='public_index/images/item_lilun.png') }}" ></a>
+                           <ul class="nav_menu">
+                               <foreach name="lilun" item="vo">
+                                <li><a href="/app/Index/content/id/21/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>    
+                           </ul>
+                  </li>
+                  <li id="nav_item_04" class="nav_item">
+                      <a href="/app/Index/content/id/13/status/-1" >
+                      <img src="{{ url_for('static', filename='public_index/images/item_zuzhi.png') }}" ></a>
+                           <ul class="nav_menu">
+                                 <foreach name="zuzhijigou" item="vo">
+                                <li><a href="/app/Index/content/id/13/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                
+                           </ul>
+                  </li>
+                  <li id="nav_item_05" class="nav_item">
+                      <a href="/app/Index/content/id/14/status/-1" >
+                      <img src="{{ url_for('static', filename='public_index/images/item_dangjian.png') }}" ></a>
+                           <ul class="nav_menu">
+                                <foreach name="dangjian" item="vo">
+                                <li><a href="/app/Index/content/id/14/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                               
+                           </ul>
+                  </li>
+                  <li id="nav_item_06" class="nav_item">
+                      <a href="/app/Index/content/id/15/status/-1"  >
+                      <img src="{{ url_for('static', filename='public_index/images/item_ganbu.png') }}" ></a>
+                            <ul class="nav_menu">
+                                 <foreach name="ganbu" item="vo">
+                                <li><a href="/app/Index/content/id/15/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                           
+                           </ul>
+                  </li>
+                  <li id="nav_item_07" class="nav_item">
+                      <a href="/app/Index/content/id/12/status/{$vo.id}" >
+                      <img src="{{ url_for('static', filename='public_index/images/item_dangxiao.png') }}" ></a>
+                  </li>
+                  <li id="nav_item_08" class="nav_item">
+                      <a href="/app/Index/content/id/17/status/-1" >
+                      <img src="{{ url_for('static', filename='public_index/images/item_tongzhan.png') }}" ></a>
+                            <ul class="nav_menu">
+                                 <foreach name="tongzhan" item="vo">
+                                <li><a href="/app/Index/content/id/17/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                             
+                           </ul>
+                  </li>
+                  <li id="nav_item_09" class="nav_item">
+                      <a href="/app/Index/content/id/18/status/-1">
+                      <img src="{{ url_for('static', filename='public_index/images/item_rencai.png') }}" ></a>
+                            <ul class="nav_menu">
+                               <foreach name="rencai" item="vo">
+                                <li><a href="/app/Index/content/id/18/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                         
+                           </ul>
+                  </li>
+                  <li id="nav_item_10" class="nav_item">
+                      <a href="/app/Index/content/id/53/status/-1">
+                      <img src="{{ url_for('static', filename='public_index/images/item_banshi.png') }}" ></a>
+                            <ul class="nav_menu">
+                                 <foreach name="banshi" item="vo">
+                                <li><a href="/app/Index/content/id/53/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                                                  
+                           </ul>
+                  </li>
+                  <li id="nav_item_11" class="nav_item noline">
+                      <a href="/app/Index/content/id/54/status/-1" >
+                      <img src="{{ url_for('static', filename='public_index/images/item_xiazai.png') }}" ></a>
+                            <ul class="nav_menu menu_noline">
+                                 <foreach name="xiazai" item="vo">
+                                <li><a href="/app/Index/content/id/54/status/{$vo.id}">{$vo.names}</a></li>
+                            </foreach>                                                                                   
+                           </ul>
+                  </li>
+            </div>
+
+
+<div id="main">
+<div id="the_path"> &gt;&gt;&nbsp;<a href="index.html">网站首页</a>&nbsp;&gt;
+    <foreach name="position_one" item="vo"> <a href="/app/Index/content/id/{$vo.id}/status/-1">{$vo.names}</a></foreach>
+    &nbsp;&gt;<a href="#">
+     
+            {{position_two.names}}
+    </a> </div>
+<div id="the_left">
+<div id="left_menu">
+<ul id="xuanka">
+{% for u in left_nav %}
+    <li class="xuanxiang"><a href="/app/Index/content/id/{$vo.cid}/status/{$vo.id}">{{u.names}}</a></li>
+{% endfor %}
+<ul>
+</div>
+</div>
+<div id="the_right">
+    <div id="subtittle">
+    </div>
+    <div id="the_content">
+        <ul id="wenben">
+            <volist name="content" id="vo" empty="暂无数据！">
+                <li class="the_article"><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{$vo.title|subtext=35}</a>&nbsp;&nbsp;<span>{$vo.edit_time}</span></li>
+            </volist>
+        </ul>
+    </div>
+    <div class="pagging"> {$page} </div>
+</div>
+<div id="the_bottom">
+    <p>深圳大学党委组织部统战部 办公楼512 <br />
+        电话：26536609   电子邮箱：zzb@szu.edu.cn </p>
+</div>
+</div>
+</div>
+</body>
+</html>

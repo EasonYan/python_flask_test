@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>深圳大学 党委组织部统战部</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/reset.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/the_main.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/wenzhang_css.css') }}" type="text/css" />
+<script src="{{ url_for('static', filename='public_index/js/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='public_index/js/menu_js.js') }}"></script>
+
+</head>
+
+    <body>
+
+		<div id="container">
+
+			<div id="header">
+			</div>
+			
+
+		<div id="main">
+            <div id="the_path"> &gt;&gt;&nbsp;<a href="index.html">网站首页</a>&nbsp;&gt;
+    <foreach name="position_one" item="vo"> <a href="/app/Index/content/id/{$vo.id}/status/-1">{$vo.names}</a></foreach>
+    &nbsp;&gt;<a href="#">
+    <volist name="position_two" id="vo" empty="所有文章"><a href="/app/Index/content/id/{$vo.cid}/status/{$vo.id}">{$vo.names}</a></volist></div>
+            <div id="the_right">
+                <div id="subtittle">
+                <foreach name="content" item="vo">
+                 <h3>{{content.title}}</h3>
+                 </foreach>
+                </div>
+                <div id="the_time">
+                 <foreach name="content" item="vo">
+                 <span>更新时间：</span><span>{$vo.edit_time}</span>
+                 <span>浏览次数：</span><span>{$vo.shu}</span>
+
+                 </foreach>
+                </div>
+                <div id="the_content">
+               {{content.content|safe}}    
+                </div>
+       
+                
+            </div>
+            <div id="the_bottom">
+                <p>深圳大学党委组织部统战部 办公楼512   <br /> 电话：26536609   电子邮箱：zzb@szu.edu.cn   </p>
+            </div>
+		</div>
+
+	</div>
+</body>
+</html>
