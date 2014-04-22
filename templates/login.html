@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/reset.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='public_index/css/login_css.css') }}" type="text/css" />
+<title>Uimaker CMS 网站内容管理系统</title>
+</head>
+<body>
+      <div class="login">
+      <div class="top">
+            <h2>组织统战部管理登陆</h2>
+      </div>
+      <div id="tips">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+        {% endwith %}
+      </div>
+      <div id="form">
+       <form method="post" action="{{ url_for('master.login') }}">
+          {{form.hidden_tag()}}
+          <label>用户名:</label>
+          {{form.username}}<br/><br/>
+          <label>密码 :</label>
+          {{form.password}}<br/>
+       <input  id="button" type="submit" value="登陆">
+       </form>
+      </div>
+      
+      </div>
+</body>
+</html>

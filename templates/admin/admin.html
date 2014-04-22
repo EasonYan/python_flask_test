@@ -1,0 +1,106 @@
+{%- import 'page.jinja' as utils %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link  rel="stylesheet" href="{{ url_for('static', filename='admin/css/reset.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/css/admin_style.css') }}" type="text/css" />
+<script src="{{ url_for('static', filename='public_index/js/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='admin/js/menu_js.js') }}"></script>
+
+<title>无标题文档</title>
+<script type="text/javascript">
+function firm()
+{
+		if(confirm("确认删除?"))
+		{
+			return true;
+		}
+		else
+			{
+				return false;
+			}
+}
+
+</script>
+</head>
+
+<body>
+<div id="header">
+  <div class="shell"> 
+    <!-- Logo + Top Nav -->
+    <div id="top">
+      <h1>党委组织部后台管理</h1>
+      <div id="top-navigation"> Welcome <strong></strong> <span>|</span> <a href="">内容管理</a> <span>|</span> <a href="">栏目管理</a> <span>|</span> <a href="">用户管理</a> <span>|</span> <a href="/app/admin/change_pwd">修改密码</a> <span>|</span> <a href="/app/admin/logout">退出</a> </div>
+    </div>
+    <!-- End Logo + Top Nav --> 
+    <!-- Main Nav -->
+    <div id="navigation">
+      <ul>
+        <li><a href=""><span>所有文章</span></a></li>
+        {% for nav in main_nav %}
+          {% if nav.cid==0 and nav.id!=11 and nav.id!=16 %}
+          <li class="nav_item"><a href="{{url_for('admin_master.fenlei',id=nav.id,page=1)}}"><span>{{nav.names}}</span></a>
+            <ul id="left">
+            {% for nav_cid in main_nav %}
+            {% if nav_cid.cid==nav.id %}
+           <li><a href="#"><span>{{nav_cid.names}}</span></a></li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+          {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <!-- End Main Nav --> 
+  </div>
+</div>
+
+<div id="content">
+
+  <!--------结束左边导航栏目----> 
+  
+  
+  <div class="table">
+    <div id="position">
+      <p><strong>当前位置:</strong><span>
+        </span><span>
+        </span></p>
+      <button onclick="">发文</button>
+    </div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th>序号</th>
+        <th>发文单位</th>
+        <th>标题</th>
+        <th>作者</th>
+        <th>时间</th>
+        <th width="110" class="ac">操作</th>
+      </tr>
+        {% for content in object_list %}
+          <tr class="odd">
+            <td style="width:40px">{{content.cid}}</td>
+            <td style="width:100px"><a href="/app/admin/xueyuan/id/-1/status/-1/writer/" target="_blank"></a></td>
+            <td style="width:380px"><a href="/app/admin/read/id/{$con.id}" target="_blank">{{content.title}}</a></td>
+            <td style="width:100px"></td>
+            <td style="width:130px"> </td>
+            <td><a  target="_blank" href="/app/admin/edit/id/{$con.id}" class="ico edit">编辑</a><a href="/app/admin/del_page/id/{$con.id}" class="ico del" onclick="return firm()">删除</a></td>
+          </tr>
+          {% endfor %}
+    </table>
+    
+    <!-- Pagging -->
+    <div class="pagging">
+      {{utils.render_pagination(pagination,'admin_master.admin')|safe}}
+    </div>
+    <!-- End Pagging --> 
+    
+  </div>
+</div>
+<!-- Table -->
+<div class="footer">
+  <p>深圳大学党委组织统战部。@copyright-2014</p>
+</div>
+</body>
+</html>

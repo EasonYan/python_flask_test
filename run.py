@@ -40,6 +40,20 @@ class think_class(db.Model):
         return '<Class: %s>' % self.id
     
 
+class User(db.Model):
+    id =db.Column(db.Integer,primary_key=True)
+    username=db.Column(db.String(20))
+    password=db.Column(db.String(20))
+
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return unicode(self.id)
 
 #db.create_all()
  
@@ -79,6 +93,10 @@ def lu(id,status):
         left_nav=left_nav,
         position_two=position_two
     )
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 
 if __name__ == '__main__':

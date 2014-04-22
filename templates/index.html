@@ -30,7 +30,7 @@
 					  <img src="{{ url_for('static', filename='public_index/images/item_dongtai.png') }}" ></a>
                            <ul class="nav_menu">
                            {% for u in dongtai %}
-                                <li><a href="{{ url_for('lu', id=12,status=u.id) }}" >{{u.names}}</a></li>
+                                <li><a href="{{ url_for('master.lu', id=12,status=u.id) }}" >{{u.names}}</a></li>
                             {% endfor %}                  
                            </ul>
 				  </li>
@@ -122,7 +122,7 @@
 						<div id="things_one" class="the_things">
                             <ul class="content_font">
                             {% for u in dongtaitongzhi %}
-                                <a href="{{url_for('content',id=u.id)}}" target="_blank" ><li id="pic_one"><div class="pic_tittle"></div>{{ u.title }}
+                                <a href="{{url_for('master.content',id=u.id)}}" target="_blank" ><li id="pic_one"><div class="pic_tittle"></div>{{ u.title }}
                                    <img  style="width:460px; height:270px" src="{$vo.imgurl}" alt="" /></li></a>
                             {% endfor %}
                               </ul>
@@ -147,7 +147,7 @@
 						<div id="things_three" class="the_things">
                                 <ul class="content_font">
                                {% for u in dangjiangongzuo %}
-                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{{ u.title }}</a><span>{{u.id}}</span></li>
+                               <li><a href="/app/Index/wenzhang/id/{$vo.id}" target="_blank">{{ u.title }}</a><span>{{u.cid}}</span></li>
                                {% endfor %}
                               </ul>
 						</div>
@@ -207,7 +207,7 @@
                                <a href="http://www.tongxin.org/" target="_blank" title="同心网"><img src="/app/public_index/images/TXW_link.gif" ></a>
                            </li>
                         </ul>
-                       <p> <a href="/app/Login/login" style="font-size:16px; color:#0000FF;">登陆</a></p>
+                       <p> <a href="{{ url_for('master.login') }}" style="font-size:16px; color:#0000FF;">登陆</a></p>
                         <p>深圳大学党委组织部统战部 办公楼512   <br /> 电话：26536609   电子邮箱：zzb@szu.edu.cn </p>
                     </div>
 			   </div>

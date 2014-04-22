@@ -1,13 +1,11 @@
-{% for article in jicengjianshe %}
+<html>
+<head>
+</head>
+<body>
 <div>
-{{ article.title }} <br />
-{{ article.content }}
-</div>
+{% for u in eason %}
+<p>{{u.title}}</p>
 {% endfor %}
-<hr />
-{% for article in zhiduwenjian %}
-<div>
-{{ article.title }} <br />
-{{ article.content }}
 </div>
-{% endfor %}
+</body>
+</html>
